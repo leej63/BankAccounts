@@ -1,0 +1,32 @@
+@model LoginUser
+
+<head>
+    <link rel="stylesheet" href="~/css/Login.css"/>
+</head>
+
+<div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <h1 class="text-center">Login</h1>
+        </div>
+        <div class="col">
+            <a class="float-right" href="/">Need to Register?</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-3">
+            <form asp-action="LoginUser" asp-controller="Home" method="post">
+                <label asp-for="Email"></label><br>
+                <input class="form-control" asp-for="Email"><br>
+                <label asp-for="Password"></label><br>
+                <input class="form-control" asp-for="Password"><br>
+                <button class="btn btn-primary form-control mb-2" type="submit">Submit</button>
+                <span class="text-center" asp-validation-for="Email"></span><br>
+                <span class="text-center" asp-validation-for="Password"></span><br>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

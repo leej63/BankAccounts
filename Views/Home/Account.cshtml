@@ -1,0 +1,45 @@
+@model Transaction
+
+<h1>Welcome, @ViewBag.CurUser.FirstName!</h1>
+<h5>Current balance: $@ViewBag.CurUser.Balance<span>.00</span></h5>
+<div>
+    <form asp-action="CreateTransaction" asp-controller="Home" method="post">
+        <label asp-for="Amount"></label>
+        <select asp-for="Amount">
+            <option value="0">Select an Option</option>
+            <option value="500">$500.00</option>
+            <option value="400">$400.00</option>
+            <option value="300">$300.00</option>
+            <option value="200">$200.00</option>
+            <option value="100">$100.00</option>
+            <option value="-100">-$100.00</option>
+            <option value="-200">-$200.00</option>
+            <option value="-300">-$300.00</option>
+            <option value="-400">-$400.00</option>
+            <option value="-500">-$500.00</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <span asp-validation-for="Amount"></span>
+    </form>
+</div>
+<div style="overflow: auto; height: 500px;">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(Transaction t in ViewBag.CurUser.MyTransactions)
+                {
+                    <tr>
+                        <td>$@t.Amount.00</td>
+                        <td>@t.CreatedAt.ToString("MMM dd yyyy")</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

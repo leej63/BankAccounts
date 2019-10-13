@@ -1,0 +1,43 @@
+﻿@model User
+
+<head>
+    <link rel="stylesheet" href="~/css/Login.css"/>
+</head>
+
+<div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <h1 class="text-center">Register</h1>
+        </div>
+        <div class="col">
+            <a class="float-right" href="/login">Already Registered?</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-3">
+            <div>
+                <form asp-action="RegisterUser" asp-controller="Home" method="post">
+                    <label asp-for="FirstName"></label><br>
+                    <input class="form-control" asp-for="FirstName"><br>
+                    <label asp-for="LastName"></label><br>
+                    <input class="form-control" asp-for="LastName"><br>
+                    <label asp-for="Email"></label><br>
+                    <input class="form-control" asp-for="Email"><br>
+                    <label asp-for="Password"></label><br>
+                    <input class="form-control" asp-for="Password"><br>
+                    <label asp-for="Confirm"></label><br>
+                    <input class="form-control" asp-for="Confirm"><br>
+                    <button class="btn btn-primary form-control" type="submit">Submit</button>
+                    <span class="text-center" asp-validation-for="FirstName"></span><br>
+                    <span class="text-center" asp-validation-for="LastName"></span><br>
+                    <span class="text-center" asp-validation-for="Email"></span><br>
+                    <span class="text-center" asp-validation-for="Password"></span><br>
+                    <span class="text-center" asp-validation-for="Confirm"></span><br>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
